@@ -90,7 +90,7 @@ Once you new which variable to extract, you need to read the phenotype file call
 
 ```{r, eval=FALSE}
 # Get the good column + repeat the ID + change header to respect plink format
-zcat /references/UKBiobank/pheno/download/9280_12505_UKBiobank.tab.gz | awk '{print $1,$1,$8,$22,$4069,$706}' > pheno.txt
+zcat /QRISdata/Q0375/UKB_pheno/download/9280_12505_UKBiobank.tab.gz | awk '{print $1,$1,$8,$22,$4069,$706}' > pheno.txt
 gzip pheno.txt
 ```
 

@@ -227,7 +227,7 @@ cd <span class="op">/</span>QRISdata<span class="op">/</span>Q0286
 <hr />
 <p>Once you new which variable to extract, you need to read the phenotype file called <code>9280_12505_UKBiobank.tab.gz</code> and extract the columns. This can be done in bash:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get the good column + repeat the ID + change header to respect plink format</span>
-zcat <span class="op">/</span>references<span class="op">/</span>UKBiobank<span class="op">/</span>pheno<span class="op">/</span>download<span class="op">/</span>9280_12505_UKBiobank.tab.gz <span class="op">|</span><span class="st"> </span>awk <span class="st">'{print $1,$1,$8,$22,$4069,$706}'</span> <span class="op">&gt;</span><span class="st"> </span>pheno.txt
+zcat <span class="op">/</span>QRISdata<span class="op">/</span>Q0375<span class="op">/</span>UKB_pheno<span class="op">/</span>download<span class="op">/</span>9280_12505_UKBiobank.tab.gz <span class="op">|</span><span class="st"> </span>awk <span class="st">'{print $1,$1,$8,$22,$4069,$706}'</span> <span class="op">&gt;</span><span class="st"> </span>pheno.txt
 gzip pheno.txt</code></pre></div>
 <p><em>Note</em>: you have to add 1 to all the ids collected in the previous step. <strong>Example</strong>, the “encoded anonymised participant ID” has the value “0” in the previous table. But it is the first column, so we call it with <code>$1</code> in the previous bash command line.</p>
 <p><em>Note</em>: the previous bash command line also perform formatting for GWAS analysis, repeating a few volumns and changing the header.</p>
