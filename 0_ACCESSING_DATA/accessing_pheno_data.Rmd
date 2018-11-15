@@ -47,8 +47,11 @@ cd /QRISdata/Q0375
 
 Path to the phenotype file:
 ```{r, eval=FALSE}
-# Go to medici on Tinaroo
-cd /QRISdata/Q0375/UKB_pheno/download/9280_12505_UKBiobank.tab.gz
+# Go to the phenotype UKB folder on Tinaroo
+cd /QRISdata/Q0375/UKB_pheno/
+  
+# Read the file with ALL the phenotypes:
+zcat /QRISdata/Q0375/UKB_pheno/download/9280_12505_UKBiobank.tab.gz | more
 ```
 
 
@@ -87,7 +90,7 @@ Once you new which variable to extract, you need to read the phenotype file call
 
 ```{r, eval=FALSE}
 # Get the good column + repeat the ID + change header to respect plink format
-zcat /references/UKBiobank/pheno/download/9280_12505_UKBiobank.tab.gz | awk '{print $1,$1,$8,$22,$4069,$706}' | sed '1 s/^.*$/FID IID f.31.0.0 f.50.0.0 f.21001.0.0 f.4079.0.0/' > pheno.txt
+zcat /references/UKBiobank/pheno/download/9280_12505_UKBiobank.tab.gz | awk '{print $1,$1,$8,$22,$4069,$706}' > pheno.txt
 gzip pheno.txt
 ```
 
